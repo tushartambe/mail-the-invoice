@@ -3,14 +3,15 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const nodemailer = require('nodemailer');
 let password = process.env.PASSWORD;
-
-console.log(password);
+let mailAddress = process.env.MAIL;
+console.log(password, "Your password");
+console.log(mailAddress, "Your Mail");
 const authorInfo = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {
-        user: 'tusharst30999@gmail.com',
+        user: mailAddress,
         pass: password
     }
 });
@@ -48,9 +49,9 @@ const handleSendMail = function (req, res) {
     orderedMenu.push({ "Total Pirce": totalPrice });
 
     const mailInfo = {
-        from: 'Tushar Tambe <tusharst30999@gmail.com>',
+        from: `<Your Name Here> <${mailAddress}>`,
         to: customerEmail,
-        subject: 'Restaurent Bill',
+        subject: `Your Restaurent Bill Mr/Mrs<${customerName}>`,
         text: JSON.stringify(orderedMenu)
     }
 
@@ -60,6 +61,7 @@ const handleSendMail = function (req, res) {
             console.log(error);
             res.send({ status: "not sent" })
         } else {
+            console.log("mail sent");
             res.send({ status: "sent" });
         }
     });
