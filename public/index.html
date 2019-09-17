@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="./index.js"></script>
+    <title>Restaurent Name</title>
+</head>
+
+<body>
+    <main class="main">
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Hotel APP</h1>
+                <p class="lead text-muted">
+                    Welcome Here
+                </p>
+                <p>
+                    <button type="button" class="btn btn-primary" onclick="displayMenu()">
+                        Get Sample Data
+                    </button>
+                </p>
+            </div>
+        </section>
+        <div id="menuDiv" class="container d-flex" style="flex-wrap:wrap;max-width:auto">
+        </div>
+        <div style="display:none" id="orderForm">
+            <label>Email :</label><input type='email' id="customerEmail" placeholder="email@email.com" />
+            <label>Name :</label><input type='text' id="customerName" placeholder="your name" />
+            <button id="order" class="btn btn-primary" onclick="order()">Order</button>
+        </div>
+    </main>
+</body>
+
+</html>
