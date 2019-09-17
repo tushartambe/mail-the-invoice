@@ -4,8 +4,11 @@ const cookieParser = require('cookie-parser');
 const nodemailer = require('nodemailer');
 let password = process.env.PASSWORD;
 
+console.log(password);
 const authorInfo = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         user: 'tusharst30999@gmail.com',
         pass: password
